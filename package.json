@@ -2,5 +2,10 @@
   "dependencies": {
     "cors": "^2.8.5",
     "express": "^4.19.2"
+  },
+  "scripts": {
+    "start": "vite",
+    "test": "jest",
+    "build": "npm install && vite build"
   }
 }
