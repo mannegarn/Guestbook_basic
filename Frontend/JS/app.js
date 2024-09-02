@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 async function fetchMessages() {
-  const response = await fetch("https://guestbook-server-lqgh.onrender.com/api/messages");
+  const response = await fetch("https://guestbook-server-lqgh.onrender.com/messages");
   const messages = await response.json();
   displayMessages(messages);
 }
@@ -42,7 +42,7 @@ function displayMessages(messages) {
 async function handleSubmit(event) {
   event.preventDefault();
   const content = document.getElementById("message-input").value;
-  await fetch("https://guestbook-server-lqgh.onrender.com/api/messages", {
+  await fetch("https://guestbook-server-lqgh.onrender.com/messages", {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ content }),
@@ -51,7 +51,7 @@ async function handleSubmit(event) {
 }
 
 async function deleteMessage(id) {
-  await fetch(`https://guestbook-server-lqgh.onrender.com/api/messages/${id}`, { method: "DELETE" });
+  await fetch(`https://guestbook-server-lqgh.onrender.com/messages/${id}`, { method: "DELETE" });
   console.log(`DELETE : http://localhost:3000/messages/${id}`);
   fetchMessages();
 }
